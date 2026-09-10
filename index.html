@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSwap - Learn & Teach</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Skill<span>Swap</span></div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Side Menu -->
+  <aside id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+
+    <h2>SkillSwap</h2>
+
+    <button onclick="showPage('home')">🏠 Home</button>
+    <button onclick="showPage('student')">🎓 Student Dashboard</button>
+    <button onclick="showPage('teacher')">👨‍🏫 Teacher Dashboard</button>
+    <button onclick="showPage('courses')">📚 Courses</button>
+    <button onclick="showPage('sessions')">🗓 Sessions</button>
+    <button onclick="showPage('bookings')">📅 My Bookings</button>
+    <button onclick="showPage('earnings')">💰 Earnings</button>
+    <button onclick="showPage('admin')">⚙ Admin Panel</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+
+      <div class="hero">
+        <h1>Learn a Skill.<br>Teach a Skill.</h1>
+        <p>Exchange knowledge with students and teachers around you.</p>
+
+        <div class="search-box">
+          <input id="skillSearch" type="text"
+                 placeholder="Search Python, Canva, English...">
+          <button onclick="searchSkill()">Search</button>
+        </div>
+      </div>
+
+      <h2>Popular Skills</h2>
+
+      <div class="cards">
+        <div class="skill-card" onclick="selectSkill('Python')">
+          <div class="icon">🐍</div>
+          <h3>Python</h3>
+          <p>Programming</p>
+        </div>
+
+        <div class="skill-card" onclick="selectSkill('Canva')">
+          <div class="icon">🎨</div>
+          <h3>Canva</h3>
+          <p>Design</p>
+        </div>
+
+        <div class="skill-card" onclick="selectSkill('English')">
+          <div class="icon">🗣️</div>
+          <h3>English</h3>
+          <p>Language</p>
+        </div>
+
+        <div class="skill-card" onclick="selectSkill('Digital Marketing')">
+          <div class="icon">📈</div>
+          <h3>Digital Marketing</h3>
+          <p>Business</p>
+        </div>
+      </div>
+
+      <h2>Recommended Teachers</h2>
+
+      <div id="teachers" class="cards">
+
+        <div class="teacher-card">
+          <div class="avatar">R</div>
+          <h3>Rahul Sharma</h3>
+          <p>Python Teacher</p>
+          <p>⭐ 4.8</p>
+          <button onclick="bookSession('Rahul Sharma', 500)">
+            View Sessions
+          </button>
+        </div>
+
+        <div class="teacher-card">
+          <div class="avatar">P</div>
+          <h3>Priya Singh</h3>
+          <p>Canva Teacher</p>
+          <p>⭐ 4.9</p>
+          <button onclick="bookSession('Priya Singh', 300)">
+            View Sessions
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- STUDENT DASHBOARD -->
+    <section id="student" class="page">
+
+      <h1>Student Dashboard</h1>
+
+      <div class="stats">
+        <div>
+          <strong>4</strong>
+          <span>Courses</span>
+        </div>
+
+        <div>
+          <strong>2</strong>
+          <span>Upcoming</span>
+        </div>
+
+        <div>
+          <strong>75%</strong>
+          <span>Progress</span>
+        </div>
+      </div>
+
+      <h2>My Learning</h2>
+
+      <div class="course-card">
+        <h3>Python Beginner Course</h3>
+        <p>Teacher: Rahul Sharma</p>
+
+        <div class="progress">
+          <div style="width:75%"></div>
+        </div>
+
+        <p>75% completed</p>
+        <button>Continue Learning</button>
+      </div>
+
+    </section>
+
+
+    <!-- TEACHER DASHBOARD -->
+    <section id="teacher" class="page">
+
+      <h1>Teacher Dashboard</h1>
+
+      <div class="stats">
+
+        <div>
+          <strong>24</strong>
+          <span>Students</span>
+        </div>
+
+        <div>
+          <strong>8</strong>
+          <span>Courses</span>
+        </div>
+
+        <div>
+          <strong>₹12,450</strong>
+          <span>Earnings</span>
+        </div>
+
+      </div>
+
+      <h2>Teacher Tools</h2>
+
+      <div class="action-grid">
+        <button onclick="createCourse()">➕ Create Course</button>
+        <button onclick="createSession()">🗓 Create Session</button>
+        <button>👥 My Students</button>
+        <button>⭐ Reviews</button>
+      </div>
+
+    </section>
+
+
+    <!-- COURSES -->
+    <section id="courses" class="page">
+
+      <h1>Courses</h1>
+
+      <div class="cards">
+
+        <div class="course-card">
+          <h3>Python for Beginners</h3>
+          <p>Rahul Sharma</p>
+          <p>⭐ 4.8</p>
+          <strong>₹500</strong>
+          <button onclick="enroll('Python for Beginners')">
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="course-card">
+          <h3>Canva Design Masterclass</h3>
+          <p>Priya Singh</p>
+          <p>⭐ 4.9</p>
+          <strong>₹300</strong>
+          <button onclick="enroll('Canva Design Masterclass')">
+            Enroll Now
+          </button>
+        </div>
+
+        <div class="course-card">
+          <h3>English Speaking</h3>
+          <p>Free Course</p>
+          <strong>FREE</strong>
+          <button onclick="enroll('English Speaking')">
+            Enroll
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SESSIONS -->
+    <section id="sessions" class="page">
+
+      <h1>Sessions</h1>
+
+      <div class="session-card">
+        <h3>Python Live Session</h3>
+        <p>Teacher: Rahul Sharma</p>
+        <p>Tomorrow • 6:00 PM</p>
+        <strong>₹500</strong>
+
+        <button onclick="bookSession('Rahul Sharma', 500)">
+          Book Paid Session
+        </button>
+      </div>
+
+      <div class="session-card">
+        <h3>Canva Basics</h3>
+        <p>Teacher: Priya Singh</p>
+        <p>Sunday • 4:00 PM</p>
+        <strong>FREE</strong>
+
+        <button onclick="bookSession('Priya Singh', 0)">
+          Book Free Session
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- BOOKINGS -->
+    <section id="bookings" class="page">
+
+      <h1>My Bookings</h1>
+
+      <div id="bookingList">
+        <p class="empty">No bookings yet.</p>
+      </div>
+
+    </section>
+
+
+    <!-- EARNINGS -->
+    <section id="earnings" class="page">
+
+      <h1>Earnings</h1>
+
+      <div class="earning-box">
+        <h2>₹12,450</h2>
+        <p>Total Teacher Earnings</p>
+      </div>
+
+      <div class="commission-box">
+        <h3>Platform Commission</h3>
+        <p>SkillSwap commission: <strong>10%</strong></p>
+      </div>
+
+    </section>
+
+
+    <!-- ADMIN -->
+    <section id="admin" class="page">
+
+      <h1>Admin Panel</h1>
+
+      <div class="stats">
+
+        <div>
+          <strong>1,250</strong>
+          <span>Users</span>
+        </div>
+
+        <div>
+          <strong>320</strong>
+          <span>Teachers</span>
+        </div>
+
+        <div>
+          <strong>₹25,400</strong>
+          <span>Commission</span>
+        </div>
+
+      </div>
+
+      <h2>Admin Controls</h2>
+
+      <div class="action-grid">
+        <button>👥 Manage Users</button>
+        <button>📚 Manage Courses</button>
+        <button>🗓 Manage Sessions</button>
+        <button>💳 Payments</button>
+        <button>💰 Commission Reports</button>
+        <button>🚫 Suspended Users</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="modal" class="modal">
+
+    <div class="modal-content">
+
+      <button class="modal-close" onclick="closeModal()">×</button>
+
+      <h2>Book Session</h2>
+
+      <p id="teacherName"></p>
+      <p id="sessionPrice"></p>
+
+      <input id="bookingDate" type="date">
+
+      <select id="bookingTime">
+        <option>10:00 AM</option>
+        <option>2:00 PM</option>
+        <option>6:00 PM</option>
+        <option>8:00 PM</option>
+      </select>
+
+      <button onclick="confirmBooking()">Confirm Booking</button>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

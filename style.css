@@ -1,0 +1,327 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #20242c;
+}
+
+.header {
+  height: 65px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  box-shadow: 0 2px 10px #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #635bff;
+}
+
+.menu-btn {
+  border: none;
+  background: #635bff;
+  color: white;
+  font-size: 24px;
+  padding: 8px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background: white;
+  padding: 25px;
+  z-index: 100;
+  transition: .3s;
+  box-shadow: 4px 0 15px #aaa;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu h2 {
+  margin: 30px 0;
+  color: #635bff;
+}
+
+.side-menu button {
+  width: 100%;
+  padding: 13px;
+  margin: 5px 0;
+  border: none;
+  background: #f1f2f8;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close-btn {
+  background: transparent !important;
+  font-size: 25px;
+  text-align: right !important;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.hero {
+  background: #635bff;
+  color: white;
+  border-radius: 20px;
+  padding: 45px 30px;
+  margin-bottom: 35px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 25px;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+button {
+  background: #635bff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero button {
+  background: white;
+  color: #635bff;
+}
+
+h2 {
+  margin: 25px 0 15px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.skill-card,
+.teacher-card,
+.course-card,
+.session-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px #ddd;
+}
+
+.skill-card {
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  background: #635bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.teacher-card p,
+.course-card p,
+.session-card p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.teacher-card button,
+.course-card button,
+.session-card button {
+  margin-top: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.stats div {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px #ddd;
+}
+
+.stats strong {
+  display: block;
+  font-size: 28px;
+  color: #635bff;
+}
+
+.stats span {
+  color: #777;
+}
+
+.progress {
+  height: 10px;
+  background: #ddd;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.progress div {
+  height: 100%;
+  background: #635bff;
+  border-radius: 10px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.action-grid button {
+  padding: 20px;
+}
+
+.earning-box,
+.commission-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 3px 12px #ddd;
+}
+
+.earning-box h2 {
+  font-size: 40px;
+  color: #635bff;
+}
+
+.empty {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  color: #777;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+}
+
+.modal-content button:last-child {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: transparent;
+  color: #333;
+  font-size: 25px;
+}
+
+@media (max-width: 600px) {
+
+  main {
+    padding: 15px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .header {
+    padding: 0 15px;
+  }
+}
